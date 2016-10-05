@@ -1,4 +1,6 @@
-body { background: url(http://www.latorra.org/wp-content/uploads/2014/01/DSC00799.jpg);
+body { 
+	background: url(http://www.latorra.org/wp-content/uploads/2014/01/DSC00799.jpg);
+	margin-top: 50px;
 }
 
 #jumbo {
