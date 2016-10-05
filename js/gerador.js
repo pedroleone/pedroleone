@@ -1,10 +1,43 @@
 
 var local = ['Uma aldeia', 'Uma vila', 'Uma cidade', 'Uma metrópole','Uma fortaleza','Um castelo'];
 
+var local_m = ['Um castelo'];
+
 var adjetivo = ['rica','entediante','encantadora','movimentada','bela','cara','compacta','espalhafatosa',
 'mística','pitoresca','poluída','antiga','acidentada','fontanhosa','fértil','estéril','turística','jovem',
 'silenciosa','cosmopolita','suja','tranquila','inquietante','fedorenta','coberta','costeira','amadeirada',
 'arrepiante','feia','misteriosa','quase-incinerada','perigosa','isolada','selvagem','imaculada','sombria'];
+
+var adjetivo_m = [
+    ['rica','rico'],
+    ['encantadora','encantador'],
+    ['movimentada','movimentado'],
+    ['bela','belo'],
+    ['cara','caro'],
+    ['compacta','compacto'],
+    ['espalhafatosa','espalhafatoso'],
+    ['mística','místico'],
+    ['pitoresca','pitoresco'],
+    ['poluída','poluído'],
+    ['antiga','antigo'],
+    ['acidentada','acidentado'],
+    ['fontanhosa','fontanhoso'],
+    ['turística','turístico'],
+    ['silenciosa','silencioso'],
+    ['suja','sujo'],
+    ['tranquila','tranquilo'],
+    ['fedorenta','fedorento'],
+    ['coberta','coberto'],
+    ['costeira','costeiro'],
+    ['amadeirada','amadeirado'],
+    ['feia','feio'],
+    ['misteriosa','misterioso'],
+    ['quase-incinerada','quase-incinerado'],
+    ['perigosa','perigoso'],
+    ['isolada','isolado'],
+    ['imaculada','imaculado'],
+    ['sombria','sombrio']    
+];
 
 var caracterisica1 = ['dá uma primeira impressão de abandonada',
 'dá uma primeira impressão de pacífica',
@@ -83,8 +116,27 @@ function random_element(items) {
     return items[Math.floor(Math.random()*items.length)];
 }
 
+function get_local_adjetivo(){
+    var local_gerado = random_element(local);
+    var adjetivo_gerado = random_element(adjetivo);
+    var local_masc = false;
+    for (var i = 0; i < local_m.length; i++) {
+        if (local_gerado ===  local_m[i]) {
+            local_masc = true;
+        }
+    }
+    if (local_masc == true) {
+    for (var i = 0; i < adjetivo_m.length; i++) {
+        if (adjetivo_gerado === adjetivo_m[i][0]) {
+            adjetivo_gerado = adjetivo_m[i][1];
+        }
+    }        
+    } 
+    return local_gerado + " " + adjetivo_gerado;
+}
+
 function gera_local() {
-    return random_element(local) + " " + random_element(adjetivo) + " que " + random_element(caracterisica1) + " e também " + random_element(caracterisica2) + ".";
+    return get_local_adjetivo() + " que " + random_element(caracterisica1) + " e também " + random_element(caracterisica2) + ".";
 
 }
 
