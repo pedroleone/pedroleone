@@ -180,7 +180,16 @@ function gera_local() {
 
 $(document).ready(function(){
     $('#local').text(gera_local());
+    
     $('#gerar').click(function(){
-      $('#local').text(gera_local());
+      
+      $("#local").fadeOut('slow', function() { 
+          $('#local').text(gera_local());
+          $("#local").fadeIn('slow');
+      });
+      
+      
+
+      
     });
-});
+11});
