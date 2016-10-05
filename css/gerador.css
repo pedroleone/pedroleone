@@ -5,6 +5,22 @@ body { background: url(http://www.latorra.org/wp-content/uploads/2014/01/DSC0079
   background-color:rgba(200, 200, 200, 0.8);
 }
 
+#jumbo h1 {
+	font-family: 'Goblin One', cursive;
+	font-size: 32px;
+}
+
+#local {
+	font-family: 'Courgette', cursive;
+	font-size: x-large;
+	text-align: center;
+}
+
+footer {
+	text-align: center;
+	color: white;
+}
+
 .btn {
 	-moz-box-shadow:inset 0px 1px 3px 0px #91b8b3;
 	-webkit-box-shadow:inset 0px 1px 3px 0px #91b8b3;
