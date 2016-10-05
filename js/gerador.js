@@ -12,7 +12,7 @@ var background_images = [
     ['Um castelo','./img/castle.jpg']];
 
 var adjetivo = ['rica','entediante','encantadora','movimentada','bela','cara','compacta','espalhafatosa',
-'mística','pitoresca','poluída','antiga','acidentada','fontanhosa','fértil','estéril','turística','jovem',
+'mística','pitoresca','poluída','antiga','acidentada','montanhosa','fértil','estéril','turística','jovem',
 'silenciosa','cosmopolita','suja','tranquila','inquietante','fedorenta','coberta','costeira','amadeirada',
 'arrepiante','feia','misteriosa','quase-incinerada','perigosa','isolada','selvagem','imaculada','sombria'];
 
@@ -29,7 +29,7 @@ var adjetivo_m = [
     ['poluída','poluído'],
     ['antiga','antigo'],
     ['acidentada','acidentado'],
-    ['fontanhosa','fontanhoso'],
+    ['montanhosa','montanhoso'],
     ['turística','turístico'],
     ['silenciosa','silencioso'],
     ['suja','sujo'],
