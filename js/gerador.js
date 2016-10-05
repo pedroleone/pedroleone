@@ -70,12 +70,12 @@ var caracterisica1 = ['dá uma primeira impressão de abandonada',
 'tem de bizarro suas mercadorias',
 'tem de bizarro sua história',
 'tem de bizarro suas crenças religiosas',
-'é próximo de um rio',
-'é próximo do mar',
-'é próximo de um vulcão',
-'é próximo da fronteira',
-'é próximo de uma caverna gigante',
-'é próximo de uma árvore antiga',
+'é próxima de um rio',
+'é próxima do mar',
+'é próxima de um vulcão',
+'é próxima da fronteira',
+'é próxima de uma caverna gigante',
+'é próxima de uma árvore antiga',
 'é ameaçada por bestas vorazes',
 'é ameaçada por terremotos',
 'é ameaçada por praga animal',
@@ -94,8 +94,8 @@ var caracterisica2 = ['tem um culto que promete a vida eterna',
 'tem um monstro oculto que está disfarçado de alguém',
 'tem um monstro oculto que exige vingança',
 'tem um monstro oculto que deseja nenhum mal',
-'tem um monstro oculto que só mata pessoas ruins',
-'tem uma maldição que os mortos caminham a noite',
+'tem um monstro oculto que só mata pessoas "ruins"',
+'tem uma maldição que os mortos caminham à noite',
 'tem uma maldição que ninguém pode sair',
 'tem uma maldição que dá pesadelos vívidos',
 'tem uma maldição em que o amanhecer nunca chega',
@@ -120,6 +120,15 @@ var caracterisica2 = ['tem um culto que promete a vida eterna',
 'tem alguém especial que é um parente do PJ desaparecido há muito tempo',
 'tem alguém especial que é o inimigo jurado de um PJ']
 
+var caracteristicas_m = [
+    ['é próxima de um rio','é próximo de um rio'],
+    ['é próxima do mar','é próximo do mar'],
+    ['é próxima de um vulcão','é próximo de um vulcão'],
+    ['é próxima da fronteira','é próximo da fronteira'],
+    ['é próxima de uma caverna gigante','é próximo de uma caverna gigante'],
+    ['é próxima de uma árvore antiga','é próximo de uma árvore antiga']
+];
+
 function random_element(items) {
     return items[Math.floor(Math.random()*items.length)];
 }
@@ -132,46 +141,39 @@ function set_background(local_gerado) {
         }
     }
     $('body').css('background-image','url('+background_image+')');
-/*
-    $('body').css('background-image', function () {
-        $('#fullpage').animate({
-            backgroundColor: 'transparent'
-        }, 1000, function () {
-            setTimeout(function () {
-                $('#fullpage').animate({
-                    backgroundColor: 'rgb(255,255,255)'
-                }, 1000);
-            }, 3000);
-        });
-        return 'url('+background_image+')';
-    });
-*/
+
 
 }
 
-function get_local_adjetivo(){
-    var local_gerado = random_element(local);
-    var adjetivo_gerado = random_element(adjetivo);
+function get_palavra_genero(local_gerado, lista_f, lista_m) {
+    var palavra = random_element(lista_f);
     var local_masc = false;
+
     for (var i = 0; i < local_m.length; i++) {
         if (local_gerado ===  local_m[i]) {
             local_masc = true;
         }
     }
+
     if (local_masc == true) {
-    for (var i = 0; i < adjetivo_m.length; i++) {
-        if (adjetivo_gerado === adjetivo_m[i][0]) {
-            adjetivo_gerado = adjetivo_m[i][1];
+        for (var i = 0; i < lista_m.length; i++) {
+            if (palavra === lista_m[i][0]) {
+                return lista_m[i][1];
+            } 
         }
-    }        
-    } 
-    set_background(local_gerado);
-    return local_gerado + " " + adjetivo_gerado;
-    
+    }
+    return palavra;
 }
 
 function gera_local() {
-    return get_local_adjetivo() + " que " + random_element(caracterisica1) + " e também " + random_element(caracterisica2) + ".";
+    var local_gerado = random_element(local);
+    var adjetivo_gerado = get_palavra_genero(local_gerado, adjetivo, adjetivo_m);
+    var c1_gerada = get_palavra_genero(local_gerado, caracterisica1, caracteristicas_m);
+    var c2_gerada = get_palavra_genero(local_gerado, caracterisica2, caracteristicas_m);
+    set_background(local_gerado);
+    return local_gerado + " " + adjetivo_gerado + " que " + c1_gerada + " e também " + c2_gerada + ".";
+
+    //return get_local_adjetivo() + " que " + random_element(caracterisica1) + " e também " + random_element(caracterisica2) + ".";
 
 }
 
