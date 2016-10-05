@@ -1,6 +1,10 @@
 body { 
-	background: url(http://www.latorra.org/wp-content/uploads/2014/01/DSC00799.jpg);
-	margin-top: 50px;
+	background-image: url('../img/gerador_background.jpg');
+	margin-top: 100px;
+    background-repeat: no-repeat;
+    background-position: top left;	
+	transition: background 1s ease-in-out;
+
 }
 
 #jumbo {
@@ -8,7 +12,7 @@ body {
 }
 
 #jumbo h1 {
-	font-family: 'Goblin One', cursive;
+	font-family: 'Berkshire Swash', cursive;
 	font-size: 32px;
 }
 
@@ -16,12 +20,15 @@ body {
 	font-family: 'Courgette', cursive;
 	font-size: x-large;
 	text-align: center;
+	margin-top: 20px;
 }
 
 footer {
 	text-align: center;
 	color: white;
 }
+
+
 
 .btn {
 	-moz-box-shadow:inset 0px 1px 3px 0px #91b8b3;

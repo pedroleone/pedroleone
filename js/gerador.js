@@ -3,6 +3,14 @@ var local = ['Uma aldeia', 'Uma vila', 'Uma cidade', 'Uma metrópole','Uma forta
 
 var local_m = ['Um castelo'];
 
+var background_images = [
+    ['Uma aldeia','./img/hamtlet.jpg'], 
+    ['Uma vila','./img/village.jpg'], 
+    ['Uma cidade','./img/city.jpg'], 
+    ['Uma metrópole','./img/metropolis.jpg'],
+    ['Uma fortaleza','./img/keep.jpg'],
+    ['Um castelo','./img/castle.jpg']];
+
 var adjetivo = ['rica','entediante','encantadora','movimentada','bela','cara','compacta','espalhafatosa',
 'mística','pitoresca','poluída','antiga','acidentada','fontanhosa','fértil','estéril','turística','jovem',
 'silenciosa','cosmopolita','suja','tranquila','inquietante','fedorenta','coberta','costeira','amadeirada',
@@ -116,6 +124,31 @@ function random_element(items) {
     return items[Math.floor(Math.random()*items.length)];
 }
 
+function set_background(local_gerado) {
+    var background_image = "./img/gerador_background.jpg"
+    for (var i = 0; i < background_images.length; i++) {
+        if (local_gerado ===  background_images[i][0]) {
+            background_image = background_images[i][1];
+        }
+    }
+    $('body').css('background-image','url('+background_image+')');
+/*
+    $('body').css('background-image', function () {
+        $('#fullpage').animate({
+            backgroundColor: 'transparent'
+        }, 1000, function () {
+            setTimeout(function () {
+                $('#fullpage').animate({
+                    backgroundColor: 'rgb(255,255,255)'
+                }, 1000);
+            }, 3000);
+        });
+        return 'url('+background_image+')';
+    });
+*/
+
+}
+
 function get_local_adjetivo(){
     var local_gerado = random_element(local);
     var adjetivo_gerado = random_element(adjetivo);
@@ -132,7 +165,9 @@ function get_local_adjetivo(){
         }
     }        
     } 
+    set_background(local_gerado);
     return local_gerado + " " + adjetivo_gerado;
+    
 }
 
 function gera_local() {
