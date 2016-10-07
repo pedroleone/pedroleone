@@ -1,5 +1,5 @@
 body { 
-	background-image: url('../img/tavern1.jpg');*/
+	background-image: url('../img/tavern1.jpg');
 	margin-top: 10px;
     background-repeat: no-repeat;
     background-position: top left;	
@@ -9,7 +9,7 @@ body {
 .nome {
 	/*font-variant: small-caps;*/
 	font-weight: bold;
-	text-decoration: underline;
+	/*text-decoration: underline;*/
 
 }
 #jumbo {

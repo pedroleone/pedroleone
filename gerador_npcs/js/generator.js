@@ -77,7 +77,11 @@ function generateNPC() {
     var talento_gerado = generateElementFromJSON(Caracteristicas["talento"]);
     var maneirismo_gerado = generateElementFromJSON(Caracteristicas["maneirismo"]);
     var idade_gerada = generateElementFromJSON(Caracteristicas["idade"]);
-    var npc_final = "<span class=\"nome\">"+nome_gerado+"</span>" + " é " + GenderedWord.getWord("um",sexo_gerado) + " " + GenderedWord.getWord(raca_gerada,sexo_gerado) + subraca_gerado + " " + GenderedWord.getWord(idade_gerada,sexo_gerado) + ". "; 
+    var tendencia_gerada = generateElementFromJSON(Tendencias);
+    var npc_final = "<span class=\"nome\">"+nome_gerado+"</span>" + " é " + GenderedWord.getWord("um",sexo_gerado) + " " + 
+                        GenderedWord.getWord(raca_gerada,sexo_gerado) + subraca_gerado + " " + 
+                        GenderedWord.getWord(idade_gerada,sexo_gerado) + " " + 
+                        GenderedWord.getWord(tendencia_gerada,sexo_gerado) +". "; 
     npc_final += capitalizeFirstLetter(GenderedWord.getWord("ele",sexo_gerado)) + " " + GenderedWord.getWord(aparencia_gerada,sexo_gerado);
     npc_final += ", " +  GenderedWord.getWord(talento_gerado,sexo_gerado);
     npc_final += " e " +  GenderedWord.getWord(maneirismo_gerado,sexo_gerado) + ".";

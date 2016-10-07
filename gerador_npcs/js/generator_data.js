@@ -43,7 +43,15 @@ var GenderedWord = {
     "gagueja quando está nervoso":"gagueja quando está nervosa",
     "é estrábico":"é estrábica",
     "não consegue ficar parado":"não consegue ficar parada",
-    
+    "leal e bom":"leal e boa",
+    "neutro e bom":"neutra e boa",
+    "caótico bom":"caótica boa",
+    "neutro":"neutra",
+    "neutro e mau":"neutra e má",
+    "leal e neutro":"leal e neutra",
+    "leal e mau":"leal e má",
+    "caótico e mau":"caótica e má",
+    "caótico neutro":"caótica neutra",    
 /*
     "":"",
     "":"",
