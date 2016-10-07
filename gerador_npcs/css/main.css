@@ -1,10 +1,10 @@
 body { 
-	/*background-image: url('../img/gerador_background.jpg');*/
+	background-image: url('../img/tavern1.jpg');*/
 	margin-top: 10px;
     background-repeat: no-repeat;
     background-position: top left;	
 	transition: background 1s ease-in-out;
-
+    background-attachment: fixed;
 }
 .nome {
 	font-variant: small-caps;
