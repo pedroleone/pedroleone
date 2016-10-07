@@ -36,7 +36,7 @@ var GenderedWord = {
     "é um dançarino excepcional":"é uma dançarina excepcional",
     "é um excelente carpinteiro":"é uma excelente carpinteira",
     "é um cozinheiro excelente":"é uma cozinheira excelente",
-    "é ótimo em resolver quebra-cabeças":"é ótima em resolver quebra-cabeças",
+    "ótimo em resolver quebra-cabeças":"é ótima em resolver quebra-cabeças",
     "ótimo em um jogo específico":"ótima em um jogo específico",
     "ótimo em imitar outras pessoas":"ótima em imitar outras pessoas",
     "inacreditavelmente sortudo":"inacreditavelmente sortuda",
