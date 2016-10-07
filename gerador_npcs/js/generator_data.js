@@ -74,5 +74,13 @@ var Nomes = {
     "humano": {"M": ["Darvin","Dorn","Evendur","Gorstag","Grim","Helm","Malark","Morn","Randal","Stedd"],
                "F": ["Arveene","Esvele","Jhessail","Kerri","Lureene","Miri","Rowan","Shandri","Tessele"],
                "sobrenome": ["Amblecrown","Buckman","Dundragon","Evenwood","Greycastle","Tallstag"]},
+    "halfling": {"M": ["Alton","Ander","Cade","Corrin","Eldon","Errich","Finnan","Garret","Lindal","Lyle","Merric","Milo","Osborn","Perrin","Reed","Roscoe","Wellby"],
+               "F": ["Andry","Bree","Callie","Cora","Euphemia","Jillian","Kithri","Lavinia","Lidda","Merla","Nedda","Paela","Portia","Seraphina","Shaena","Trym","Vani","Verna"],
+               "sobrenome": ["Brushgather","Goodbarrel","Greenbottle","High-hill","Hilltopple","Leagalow","Tealeaf","Thorngage","Tosscobble","Underbough"]},
+
+    "_": {"M": [""],
+               "F": [""],
+               "sobrenome": [""]},
+
 }
 
