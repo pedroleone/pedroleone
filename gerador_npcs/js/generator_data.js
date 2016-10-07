@@ -25,6 +25,12 @@ var GenderedWord = {
     "um":"uma",
     "meio-elfo":"meio-elfa",
     "meio-elfo criado por ":"meio-elfa criado por ",
+    "idoso":"idosa",
+    "adulto":"adulta",
+    "velho":"velha",
+    "é excepcionalmente bonito":"é excepcionalmente bonita",
+    "é excepcionalmente feio":"é excepcionalmente feia",
+    "ele":"ela",
 /*
     "":"",
     "":"",
@@ -56,6 +62,38 @@ var Subracas = {
     "halfling": ["pés leves","robusto"],
     "gnomo": ["das rochas", "da floresta"]
 }
+
+var Caracteristicas = {
+    "idade": ["muito jovem","jovem", "adulto", "de meia-idade", "velho", "idoso"],
+    "interacao": [],
+    "aparencia": [
+        "usa jóias que chamam atenção",
+        "tem vários piercings",
+        "usa roupas espalhafatosas",
+        "usa roupas formais impecáveis",
+        "usa roupas rasgadas e sujas",
+        "tem uma cicatriz pronunciada",
+        "tem vários dentes faltando",
+        "tem vários dedos faltando",
+        "tem olhos de uma cor incomum",
+        "tem tatuagens pelo corpo",
+        "tem uma marca de nascença",
+        "tem uma cor de pele incomum",
+        "é careca",
+        "tem seu cabelo trançado",
+        "tem um tique nervoso nos olhos",
+        "tem um nariz pronunciado",
+        "tem uma postura pronunciada",
+        "é excepcionalmente bonito",
+        "é excepcionalmente feio"
+    ],
+    "talento": [],
+    "maneirismo": [],
+    "vinculo": [],
+    "defeitos": [],
+
+}
+
 
 var Nomes = {
     getArrayNomes: function (race, sexo) {

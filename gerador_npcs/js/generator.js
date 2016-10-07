@@ -73,8 +73,11 @@ function generateNPC() {
     if (Subracas.hasOwnProperty(raca_gerada)) {
         subraca_gerado = " " + generateElementFromJSON(Subracas[raca_gerada]);
     }
+    var aparencia_gerada = generateElementFromJSON(Caracteristicas["aparencia"]);
+    var npc_final = nome_gerado + " é " + GenderedWord.getWord("um",sexo_gerado) + " " + GenderedWord.getWord(raca_gerada,sexo_gerado) + subraca_gerado + ". "; 
+    npc_final += capitalizeFirstLetter(GenderedWord.getWord("ele",sexo_gerado)) + " " + aparencia_gerada + ".";
     
-    return nome_gerado + " é " + GenderedWord.getWord("um",sexo_gerado) + " " + GenderedWord.getWord(raca_gerada,sexo_gerado) + subraca_gerado + ".";
+    return npc_final;
 }
 
 $(document).ready(function(){
