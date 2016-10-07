@@ -51,7 +51,18 @@ var GenderedWord = {
     "leal e neutro":"leal e neutra",
     "leal e mau":"leal e má",
     "caótico e mau":"caótica e má",
-    "caótico neutro":"caótica neutra",    
+    "caótico neutro":"caótica neutra",
+    "está dedicado a cumprir um objetivo pessoal":"está dedicada a cumprir um objetivo pessoal",
+    "é um protetor dedicado de sua família próxima":"é uma protetora dedicada de sua família próxima",
+    "é um protetor de seus colegas e compatriotas":"é uma protetora de seus colegas e compatriotas",
+    "está cativado por um interesse romântico":"está cativada por um interesse romântico",
+    "se sente atraído por um local específico":"se sente atraída por um local específico",
+    "é protetor de um item com valor sentimental":"é protetora de um item com valor sentimental",
+    "é protetor de uma posse valiosa":"é protetora de uma posse valiosa",
+    "propenso a ataques de fúria":"propensa a ataques de fúria",
+    "é corajoso a ponto de ser imprudente com suas ações":"é corajosa a ponto de ser imprudente com suas ações",
+
+
 /*
     "":"",
     "":"",
@@ -86,7 +97,6 @@ var Subracas = {
 
 var Caracteristicas = {
     "idade": ["muito jovem","jovem", "adulto", "de meia-idade", "velho", "idoso"],
-    "interacao": [],
     "aparencia": [
         "usa jóias que chamam atenção",
         "tem vários piercings",
@@ -150,8 +160,46 @@ var Caracteristicas = {
         "morde as unhas",
         "enrola os cabelos ou barba"
     ],
-    "vinculo": [],
-    "defeitos": [],
+    "vinculo": [
+        "está dedicado a cumprir um objetivo pessoal",
+        "é um protetor dedicado de sua família próxima",
+        "é um protetor de seus colegas e compatriotas",
+        "é leal a um bem-feitor, patrono ou empregado",
+        "está cativado por um interesse romântico",
+        "se sente atraído por um local específico",
+        "é protetor de um item com valor sentimental",
+        "é protetor de uma posse valiosa",
+        "está em busca de vingança"
+    ],
+    "defeito": [
+        "é possuir um amor proibido",
+        "é gostar demais de prazeres carnais decadentes",
+        "é ser arrogante",
+        "é invejar as posses de outra criatura",
+        "é possuir uma cobiça avassaladora",
+        "é ser propenso a ataques de fúria",
+        "é possuir um inimigo poderoso",
+        "é ter uma fobia",
+        "é ter uma história vergonhosa no passado",
+        "é ter uma história escandalosa no passado",
+        "é ter cometido secretamente um crime",
+        "é estar em posse de conhecimento proibido",
+        "é ser corajoso a ponto de ser imprudente com suas ações"
+    ],
+    "interacao": [
+        "argumentativo",
+        "arrotante",
+        "tumultuoso",
+        "rude",
+        "curioso",
+        "amigável",
+        "honesto",
+        "exaltado",
+        "irritável",
+        "ponderoso",
+        "quieto",
+        "desconfiado"
+    ]
 
 }
 
