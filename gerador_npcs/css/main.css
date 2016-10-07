@@ -6,7 +6,12 @@ body {
 	transition: background 1s ease-in-out;
 
 }
+.nome {
+	font-variant: small-caps;
+	font-weight: bold;
+	text-decoration: underline;
 
+}
 #jumbo {
   background-color:rgba(200, 200, 200, 0.8);
 }

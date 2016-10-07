@@ -114,7 +114,7 @@ var Caracteristicas = {
         "fala em rimas",
         "tem uma voz particularmente grave",
         "tem uma voz particularmente aguda",
-        "gagueija quando está nervoso",
+        "gagueja quando está nervoso",
         "fala muito alto",
         "fala sussurrando",
         "fala usando palavras difíceis e fazendo discursos floridos",
