@@ -74,9 +74,13 @@ function generateNPC() {
         subraca_gerado = " " + generateElementFromJSON(Subracas[raca_gerada]);
     }
     var aparencia_gerada = generateElementFromJSON(Caracteristicas["aparencia"]);
-    var npc_final = nome_gerado + " é " + GenderedWord.getWord("um",sexo_gerado) + " " + GenderedWord.getWord(raca_gerada,sexo_gerado) + subraca_gerado + ". "; 
-    npc_final += capitalizeFirstLetter(GenderedWord.getWord("ele",sexo_gerado)) + " " + aparencia_gerada + ".";
-    
+    var talento_gerado = generateElementFromJSON(Caracteristicas["talento"]);
+    var maneirismo_gerado = generateElementFromJSON(Caracteristicas["maneirismo"]);
+    var idade_gerada = generateElementFromJSON(Caracteristicas["idade"]);
+    var npc_final = nome_gerado + " é " + GenderedWord.getWord("um",sexo_gerado) + " " + GenderedWord.getWord(raca_gerada,sexo_gerado) + subraca_gerado + " " + GenderedWord.getWord(idade_gerada,sexo_gerado) + ". "; 
+    npc_final += capitalizeFirstLetter(GenderedWord.getWord("ele",sexo_gerado)) + " " + GenderedWord.getWord(aparencia_gerada,sexo_gerado);
+    npc_final += ", " +  GenderedWord.getWord(talento_gerado,sexo_gerado);
+    npc_final += " e " +  GenderedWord.getWord(maneirismo_gerado,sexo_gerado) + ".";
     return npc_final;
 }
 
@@ -89,7 +93,7 @@ $(document).ready(function(){
 
     $('#gerar-20').click(function(){
         $('#npc').text(generateNPC());
-        for (var i =0; i <20; i++) {
+        for (var i =0; i <=20; i++) {
              $('#npc').append('<br>' + generateNPC());
         }
     });
