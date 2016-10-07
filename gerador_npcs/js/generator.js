@@ -79,6 +79,10 @@ $(document).ready(function(){
 
     $('#gerar').click(function(){
         $('#npc').text(generateNPC());
+    });
+
+    $('#gerar-20').click(function(){
+        $('#npc').text(generateNPC());
         for (var i =0; i <20; i++) {
              $('#npc').append('<br>' + generateNPC());
         }

@@ -1,6 +1,6 @@
 body { 
 	/*background-image: url('../img/gerador_background.jpg');*/
-	margin-top: 100px;
+	margin-top: 10px;
     background-repeat: no-repeat;
     background-position: top left;	
 	transition: background 1s ease-in-out;
