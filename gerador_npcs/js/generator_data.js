@@ -50,6 +50,13 @@ var Racas = {
     rare: ["goliath","gnomo das profundezas","aarakocra","genasi","drow"]
 }
 
+var Subracas = {
+    "anão": ["da montanha", "da colina"],
+    "elfo": ["alto", "da floresta"],
+    "halfling": ["pés leves","robusto"],
+    "gnomo": ["das rochas", "da floresta"]
+}
+
 var Nomes = {
     getArrayNomes: function (race, sexo) {
         if (!this.hasOwnProperty(race)) {

@@ -55,7 +55,7 @@ function generateNPC() {
             raca_criacao = "humano";
         }
         nome_gerado =  generateElementFromJSON(Nomes.getArrayNomes(raca_criacao,sexo_gerado));
-        raca_gerada = "genasi criado por " + raca_criacao +"s";
+        raca_gerada = GenderedWord.getWord(raca_gerada,sexo_gerado) + " criado por " + raca_criacao +"s";
     } else if (raca_gerada === "meio-elfo") {
         var raca_criacao = "";
         if (getRandomD100() > 50) {
@@ -69,9 +69,12 @@ function generateNPC() {
     else {
         nome_gerado =  generateElementFromJSON(Nomes.getArrayNomes(raca_gerada,sexo_gerado));
     }
-
+    var subraca_gerado = "";
+    if (Subracas.hasOwnProperty(raca_gerada)) {
+        subraca_gerado = " " + generateElementFromJSON(Subracas[raca_gerada]);
+    }
     
-    return nome_gerado + " é " + GenderedWord.getWord("um",sexo_gerado) + " " + GenderedWord.getWord(raca_gerada,sexo_gerado) + ".";
+    return nome_gerado + " é " + GenderedWord.getWord("um",sexo_gerado) + " " + GenderedWord.getWord(raca_gerada,sexo_gerado) + subraca_gerado + ".";
 }
 
 $(document).ready(function(){
