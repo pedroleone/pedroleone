@@ -2,6 +2,10 @@ function getRandomElementFromArray(items) {
     return items[Math.floor(Math.random()*items.length)];
 }
 
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 function getRandomD100() {
   return Math.floor(Math.random() * (100 - 1)) + 1;
 }
@@ -11,9 +15,11 @@ function generateElementFromJSON(item) {
     var uncommonValue = 25;
     var rareValue = 5;
     var generatedValue = getRandomD100();
-
-    if (!item.hasOwnProperty("common")) {
-        return "ERROR / JSON INVALIDO - deve possuir pelo menos atributo common";
+    
+    if(Array.isArray(item)) {
+        return getRandomElementFromArray(item);
+    } else if (!item.hasOwnProperty("common")) {
+        return "ERROR / JSON INVALIDO - deve ser um Array ou possuir pelo menos propriedade  common";
     } 
     if (!item.hasOwnProperty("uncommon")) {
         commonValue += uncommonValue;
@@ -35,17 +41,20 @@ function generateElementFromJSON(item) {
 
 
 function generateNPC() {
-    return generateElementFromJSON(Test);
+    var sexo_gerado = "M";
+    if (getRandomD100() > 50) {
+        sexo_gerado = "F"
+    }
+    raca_gerada = generateElementFromJSON(Racas);
+    nome_gerado =  generateElementFromJSON(Nomes.getArrayNomes(raca_gerada,sexo_gerado));
+    return nome_gerado + " é " + GenderedWord.getWord("um",sexo_gerado) + " " + GenderedWord.getWord(raca_gerada,sexo_gerado) + ".";
 }
 
 $(document).ready(function(){
     $('#npc').text(generateNPC());
 
     $('#gerar').click(function(){
-        $('#npc').text("");
-        for (var i = 0; i < 20; i++){
-            $('#npc').append(generateNPC() + " - ");
-        }
+        $('#npc').text(generateNPC());
     });
 
 

@@ -1,8 +1,19 @@
+function getRandomElementFromArray(items) {
+    return items[Math.floor(Math.random()*items.length)];
+}
+
 var GenderedWord = {
-    getWord: function(gender, word) {
-        if (gender !== "F" || gender !== "M") {
-            return "ERRO / Genero deve ser M ou F";
-        }
+    getWord: function(word,gender) {
+
+        if (gender == "F") {
+            if (!this.hasOwnProperty(word)) {
+                return word;
+            } else {
+                return this[word];
+            }
+        } 
+        return word;
+
     },
     /* 
       Armazenar palavras na seguinte forma: 
@@ -38,8 +49,30 @@ var Racas = {
     rare: ["goliath","gnomo das profundezas","aarakocra","genasi","drow"]
 }
 
-var Test = {
-    common: ["common1","common2","common3"],
-    uncommon: ["uncommon1","uncommon2","uncommon3"],
-    rare: ["rare1","rare2","rare3"]
+var Nomes = {
+    getArrayNomes: function (race, sexo) {
+        if (!this.hasOwnProperty(race)) {
+            return this.generico[sexo];
+        } else {
+            if (this[race].hasOwnProperty("sobrenome")) {
+                var array_nomes = this[race][sexo].slice(0);
+                var sobrenome = getRandomElementFromArray(this[race]["sobrenome"]);
+
+                for(var i=0;i<array_nomes.length;i++){
+                    array_nomes[i]=array_nomes[i] + " " + sobrenome;
+                }
+                return array_nomes;
+            }
+            return this[race][sexo];
+        }
+
+    },
+
+    generico: {"F": ["Mary"],
+               "M": ["John"]
+            },
+    "humano": {"M": ["Darvin","Dorn","Evendur","Gorstag","Grim","Helm","Malark","Morn","Randal","Stedd"],
+               "F": ["Arveene","Esvele","Jhessail","Kerri","Lureene","Miri","Rowan","Shandri","Tessele"],
+               "sobrenome": ["Amblecrown","Buckman","Dundragon","Evenwood","Greycastle","Tallstag"]},
 }
+
