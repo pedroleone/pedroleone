@@ -147,6 +147,12 @@ var Caracteristicas = {
 
 }
 
+var Tendencias = {
+    common: ["leal e bom","neutro e bom","caótico bom","neutro","neutro e mau"],
+    uncommon: ["leal e neutro","leal e mau","caótico e mau","caótico neutro"],
+  
+}
+
 
 var Nomes = {
     getArrayNomes: function (race, sexo) {

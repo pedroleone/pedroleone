@@ -7,7 +7,7 @@ body {
     background-attachment: fixed;
 }
 .nome {
-	font-variant: small-caps;
+	/*font-variant: small-caps;*/
 	font-weight: bold;
 	text-decoration: underline;
 
