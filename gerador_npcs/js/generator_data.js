@@ -24,6 +24,7 @@ var GenderedWord = {
     "elfo":"elfa",
     "um":"uma",
     "meio-elfo":"meio-elfa",
+    "meio-elfo criado por ":"meio-elfa criado por ",
 /*
     "":"",
     "":"",
@@ -44,7 +45,7 @@ var GenderedWord = {
 
 
 var Racas = {
-    common: ["humano", "humano", "humano", "humano", "humano","elfo","anão","halfling"],
+    common: ["humano","elfo","anão","halfling"],
     uncommon: ["draconato","gnomo","meio-elfo","meio-orc","tiefling"],
     rare: ["goliath","gnomo das profundezas","aarakocra","genasi","drow"]
 }
@@ -80,7 +81,25 @@ var Nomes = {
     "elfo": {"M": ["Adran","Aelar","Aramil","Arannis","Aust","Beiro","Berrian","Carric","Enialis","Erdan","Erevan","Galinndan","Hadarai","Heian","Himo","Immeral","Ivellios","Laucian","Mindartis","Paelias","Peren","Quarion","Riardon","Rolen","Soveliss","Thamior","Theren","Varis"],
                "F": ["Adrie","Althaea","Anastrianna","Andraste","Antinua","Bethrynna","Birel","Caelynn","Drusilia","Enna","Felosial","Ielenia","Jelenneth","Keyleth","Leshanna","Lia","Meriele","Mialee","Naivara","Quelenna","Quillathe","Sariel","Shanairra","Shava","Silaqui","Theirastra","Thia","Vadania","Valanthe","Xanaphia"],
                "sobrenome": ["Amakiir (Gemflower)", "Amastacia (Starflower)", "Galanodel (Moonwhisper)", "Holimion (Oiamonddew)", "IIphelkiir (Gemblossom)", "Liadon (Silverfrond)", "Meliamne (Oakenheel)", "Nailo (Nightbreeze)", "Siannodel (Moonbrook)", "Xiloscient (Goldpetal)"]},
-/*
+    "anão": {"M": ["Adrik","Alberich","Baern","Barendd","Brottor","Bruenor","Oain","Oarrak","Oelg","Eberk","Einkil","Fargrim","Flint","Gardain","Harbek","Kildrak","Morgran","Orsik","Oskar","Rangrim","Rurik","Taklinn","Thoradin","Thorin","Tordek","Traubon","Travok","Ulfgar","Veit","Vondal"],
+               "F": ["Amber","Artin","Audhild","Bardryn","Oagnal","Oiesa","Eldeth","Falkrunn","Finellen","Gunnloda","Gurdis","Helja","Hlin","Kathra","Kristryd","lide","Liftrasa","Mardred","Riswynn","Sannl","Torbera","Torgga","Vistra"],
+               "sobrenome": ["Balderk","Battlehammer","Brawnanvil","Oankil","Fireforge","Frostbeard","Gorunn","Holderhek","Ironfist","Loderr","Lutgehr","Rumnaheim","Strakeln","Torunn","Ungart"]},               
+    "draconato": {"M": ["Arjhan","Balasar","Bharash","Donaar","Ghesh","Heskan","Kriv","Medrash","Mehen","Nadarr","Pandjed","Patrin","Rhogar","Shamash","Shedinn","Tarhun","Torinn"],
+               "F": ["Akra","Biri","Daar","Farideh","Harann","HaviJar","Jheri","Kava","Korinn","Mishann","Nala","Perra","Raiann","Sora","Surina","Thava","Uadjit"],
+               "sobrenome": ["Clethtinthiallor","Daardendrian","Delmirev","Drachedandion","Fenkenkabradon","Kepeshkmolik","Kerrhylon","Kimbatuul","Linxakasendalor","Myastan","Nemmonis","Norixius","Ophinshtalajiir","Prexijandilin","Shestendeliath","Turnuroth","Verthisathurgiesh","Yarjerit"]},
+    "aarakocra": {"M": ["Aera","Aial","Aur","Deekek","Errk","Heehk","Ikki","Kleeck","Oorr","Ouss","Quaf","Quierk","Salleek","Urreek","Zeed"],
+                  "F": ["Aera","Aial","Aur","Deekek","Errk","Heehk","Ikki","Kleeck","Oorr","Ouss","Quaf","Quierk","Salleek","Urreek","Zeed"]},
+    "gnomo": {"M": ["Alston","Alvyn","Boddynock","Brocc","Burgell","Dimble","Eldon","Erky","Fonkin","Frug","Gerbo","Gimble","Glim,Jebeddo","Kellen","Namfoodle","Orryn","Roondar","Seebo","Sindri","Warryn","Wrenn","Zook"],
+               "F": ["Bimpnollin","Breena","Caramip","Carlin","Donella","Duvamil","ElIa","ElIyjobell","ElIywick","Lilli","Loopmottin","Lorilla","Mardnab","Nissa","Nyx","Oda","Orla","Roywyn","Shamil","Tana","Waywocket","Zanna"],
+               "sobrenome": ["Beren","Daergel","Folkor","Garrick","Nackle","Murnig","Ningel","Raulnor","Scheppen","Timbers","Turen"]},
+    "meio-orc": {"M": ["Dench","Feng","Gell","Henk","Holg","Imsh","Kelh","Krusk","Mhurren","Ront","Shump","Thokk"],
+               "F": ["Baggi","Emen","Engong","Kansif","Myev","Neega","Ovak","Ownka","Shaulha","Sulha","Vola","Volen","Yevelda"]},
+    "tiefling": {"M": ["Akmenos","Amnon","Barakas","Damakos","Ekemon","lados","Kairon","Leucis","Melech","Mordai","Morthos","Pelaios","Skamos","Therai"],
+               "F": ["Akta","Anakis","Bryseis","Criella","Damaia","Ea","Kallista","Lerissa","Makaria","Nemeia","Orianna","Phelaia","Rieta"]},                                             
+    "gnomo das profundezas": {"M": ["Belwar","Brickers","Durthmeck","Firble","Krieger","Kronthud","Schneltheck","Schnicktick","Thulwar","Walschud"],
+               "F": ["Beliss","Durthee","Fricknarti","Ivridda","Krivi","Lulthiss","Nalvarti","Schnella","Thulmarra","Wirsidda"],
+               "sobrenome": ["Crystalfist","Gemcutter","Ironfoot","Rockhewer","Seamfinder","Stonecutter"]},         
+/*  
     "_": {"M": [""],
                "F": [""],
                "sobrenome": [""]},

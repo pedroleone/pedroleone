@@ -45,8 +45,32 @@ function generateNPC() {
     if (getRandomD100() > 50) {
         sexo_gerado = "F"
     }
-    raca_gerada = generateElementFromJSON(Racas);
-    nome_gerado =  generateElementFromJSON(Nomes.getArrayNomes(raca_gerada,sexo_gerado));
+    var raca_gerada = generateElementFromJSON(Racas);
+    var nome_gerado = "";
+    if (raca_gerada === "drow") {
+        nome_gerado =  generateElementFromJSON(Nomes.getArrayNomes("elfo",sexo_gerado));
+    } else if (raca_gerada === "genasi") {
+        var raca_criacao = generateElementFromJSON(Racas);
+        if (raca_criacao === "genasi") {
+            raca_criacao = "humano";
+        }
+        nome_gerado =  generateElementFromJSON(Nomes.getArrayNomes(raca_criacao,sexo_gerado));
+        raca_gerada = "genasi criado por " + raca_criacao +"s";
+    } else if (raca_gerada === "meio-elfo") {
+        var raca_criacao = "";
+        if (getRandomD100() > 50) {
+            raca_criacao = "humano";
+        } else {
+            raca_criacao = "elfo";
+        }
+        nome_gerado =  generateElementFromJSON(Nomes.getArrayNomes(raca_criacao,sexo_gerado));
+        raca_gerada = "meio-elfo criado por " + raca_criacao +"s";        
+    }
+    else {
+        nome_gerado =  generateElementFromJSON(Nomes.getArrayNomes(raca_gerada,sexo_gerado));
+    }
+
+    
     return nome_gerado + " é " + GenderedWord.getWord("um",sexo_gerado) + " " + GenderedWord.getWord(raca_gerada,sexo_gerado) + ".";
 }
 
@@ -55,6 +79,9 @@ $(document).ready(function(){
 
     $('#gerar').click(function(){
         $('#npc').text(generateNPC());
+        for (var i =0; i <20; i++) {
+             $('#npc').append('<br>' + generateNPC());
+        }
     });
 
 
