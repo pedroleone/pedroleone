@@ -5,6 +5,10 @@ body {
     background-position: top left;	
 	transition: background 1s ease-in-out;
     background-attachment: fixed;
+	min-height:100%;
+
+	/* The Magic */
+	background-size:cover;	
 }
 .nome {
 	/*font-variant: small-caps;*/
