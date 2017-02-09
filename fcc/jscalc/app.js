@@ -34,6 +34,11 @@ $(function () {
 */
     function displayNumbers(val) {
         $(".calc-result").text(val);
+
+        $("#fst").text(firstNumber);
+        $("#snd").text(secondNumber);
+        $("#op").text(operator);
+        $("#arr").text(numberArray);
     }
 
     var displayArray = [];
@@ -83,7 +88,8 @@ $(function () {
         if (firstNumber && isNaN(id) && id !== "=" && !operator) {
             numberArray = [];
             operator = id;
-            console.log(operator);
+            displayNumbers(firstNumber + operator);
+            return;
         }
 
         if (operator === "" || !operator) { 
