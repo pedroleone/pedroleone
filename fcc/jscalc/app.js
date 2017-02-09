@@ -27,6 +27,7 @@ $(function() {
             default:
                 id = $(this).attr("id");
 
+
         }
         display.push(id);
         displayNumbers();
