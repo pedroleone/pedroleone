@@ -33,7 +33,12 @@ $(function () {
     }
 */
     function displayNumbers(val) {
-        $(".calc-result").html(val);
+        if (!val) {
+            $(".calc-result").html('erro!');
+        } else {
+            $(".calc-result").html(val);
+        }
+        
 
         $("#fst").text(firstNumber);
         $("#snd").text(secondNumber);
@@ -49,7 +54,7 @@ $(function () {
 
     function pushButton(id) {
         
-
+        
         if (id === 'ce') {
             numberArray = [];
             if (firstNumber && operator & !secondNumber) {
@@ -77,10 +82,21 @@ $(function () {
             return;            
         }
 
-        if (valueForChain && !firstNumber && !secondNumber && numberArray.length === 0 && isNaN(id) && id !== ".") {
+        if (valueForChain && !firstNumber && !secondNumber && numberArray.length === 0 && isNaN(id) && id !== "." && id !== "=") {
             firstNumber = valueForChain;
             valueForChain = null;
-            operator = id;
+            //operator = id;
+        }
+
+        if (firstNumber && secondNumber && operator && id !== "=" && id !== ".") {
+            var result = calculate(firstNumber, secondNumber, operator);
+            valueForChain = result;
+            numberArray = [];
+            firstNumber = result;
+            secondNumber = null;
+            operator = operator;
+            displayNumbers(result);
+            return;            
         }
 
         if (operator === "" && isNaN(id) && id !== ".") {
@@ -127,7 +143,7 @@ $(function () {
             return;
         }
         
-        if (firstNumber && isNaN(id) && id !== "=" && !operator) {
+        if (firstNumber && isNaN(id) && id !== "=" && !operator && id !== ".") {
             numberArray = [];
             operator = id;
             if (operator === "*") {
@@ -141,8 +157,10 @@ $(function () {
             return;
         }
 
-        if (operator === "" || !operator) { 
+        if (!valueForChain && (operator === "" || !operator)) { 
             firstNumber = parseFloat(numberArray.join(""));
+            
+            
         } else {
             secondNumber = parseFloat(numberArray.join(""));
         }
