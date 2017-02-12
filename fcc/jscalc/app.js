@@ -33,7 +33,7 @@ $(function () {
     }
 */
     function displayNumbers(val) {
-        $(".calc-result").text(val);
+        $(".calc-result").html(val);
 
         $("#fst").text(firstNumber);
         $("#snd").text(secondNumber);
@@ -44,7 +44,7 @@ $(function () {
     var displayArray = [];
     var numberArray = [];
     var operator, firstNumber,secondNumber;
-
+    var valueForChain;
 
     function pushButton(id) {
         if (id === 'ce') {
@@ -61,12 +61,21 @@ $(function () {
             return;            
         }
 
+        if (valueForChain && !firstNumber && !secondNumber && numberArray.length === 0 && isNaN(id) && id !== ".") {
+            firstNumber = valueForChain;
+            valueForChain = null;
+            operator = id;
+        }
+
         if (operator === "" && isNaN(id) && id !== ".") {
             return;
         }
 
-        if (id === "." && numberArray.indexOf(id) > -1) {
-            return; // don't add new "."
+        if (id === ".") {
+            if (numberArray.indexOf(id) === 0) {
+                numberArray.push(id);
+            }
+            return;
         }
 
         if (!isNaN(id) || id === ".") {
@@ -75,8 +84,20 @@ $(function () {
 
         
         
-        if (secondNumber && id === "=") {
+        if (secondNumber !== null && id === "=") {
+            if (secondNumber === 0 && operator === "/") {
+                // division by zero
+                displayNumbers("Error!");
+                numberArray = [];
+                firstNumber = null;
+                secondNumber = null;
+                operator = null;
+
+                return;
+            }
+            
             var result = calculate(firstNumber, secondNumber, operator);
+            valueForChain = result;
             numberArray = [];
             firstNumber = null;
             secondNumber = null;
@@ -88,7 +109,12 @@ $(function () {
         if (firstNumber && isNaN(id) && id !== "=" && !operator) {
             numberArray = [];
             operator = id;
-            displayNumbers(firstNumber + operator);
+            if (operator === "/") {
+                displayNumbers('&#247;'); 
+            } else {
+                displayNumbers(operator);
+            }
+            
             return;
         }
 

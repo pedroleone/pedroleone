@@ -1,3 +1,10 @@
+html {
+	height: 100%;
+	background: white;
+	background: radial-gradient(circle, #fff 20%, #ccc);
+	background-size: cover;
+}
+
 .calc-result {
     height: 70px;
     background-color: cadetblue;
@@ -7,8 +14,10 @@
 }
 
 .calc-app {
-    width: 500px;
-    margin: 100px 100px 100px 100px;
+    width: 400px;
+    height: auto;
+    margin: 100px auto;
+
 }
 
 .calc-app span {
@@ -22,4 +31,5 @@
     border-radius: 20%;
     padding-top: 8px;
     font-size: 40px;
+    user-select: none;
 }
