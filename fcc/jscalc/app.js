@@ -45,13 +45,29 @@ $(function () {
     var numberArray = [];
     var operator, firstNumber,secondNumber;
     var valueForChain;
+    
 
     function pushButton(id) {
+        
+
         if (id === 'ce') {
             numberArray = [];
+            if (firstNumber && operator & !secondNumber) {
+                return;
+            }
+
+            if (secondNumber) {
+                secondNumber = null;
+            } else {
+                firstNumber = null;
+            }
             displayNumbers('0');
             return;
         }
+        /*
+        if(id === '0' && numberArray.length === 0) {
+            numberArray.push(id);
+        }*/
 
         if (id === 'ac') {
             firstNumber = null;
@@ -72,13 +88,18 @@ $(function () {
         }
 
         if (id === ".") {
-            if (numberArray.indexOf(id) === 0) {
+            if (numberArray.indexOf(id) === -1) {
+                if (numberArray.length === 0) {
+                    numberArray.push('0');
+                }
+                
                 numberArray.push(id);
             }
-            return;
+            
+            //return;
         }
 
-        if (!isNaN(id) || id === ".") {
+        if (!isNaN(id)) {
             numberArray.push(id);
         }
 
@@ -109,7 +130,9 @@ $(function () {
         if (firstNumber && isNaN(id) && id !== "=" && !operator) {
             numberArray = [];
             operator = id;
-            if (operator === "/") {
+            if (operator === "*") {
+                displayNumbers('X');
+            } else if (operator === "/") {
                 displayNumbers('&#247;'); 
             } else {
                 displayNumbers(operator);
