@@ -27,18 +27,18 @@ $(function () {
         }
         pushButton(id);
     });
-/*
-    function displayNumbers() {
-        $(".calc-result").text(displayArray.join(""));
-    }
-*/
+    /*
+        function displayNumbers() {
+            $(".calc-result").text(displayArray.join(""));
+        }
+    */
     function displayNumbers(val) {
         if (!val) {
             $(".calc-result").html('erro!');
         } else {
             $(".calc-result").html(val);
         }
-        
+
 
         $("#fst").text(firstNumber);
         $("#snd").text(secondNumber);
@@ -48,128 +48,101 @@ $(function () {
 
     var displayArray = [];
     var numberArray = [];
-    var operator, firstNumber,secondNumber;
+    var operator, firstNumber, secondNumber;
     var valueForChain;
-    
+    var isFirstNumberEntered = false;
+
 
     function pushButton(id) {
         
-        
-        if (id === 'ce') {
-            numberArray = [];
-            if (firstNumber && operator & !secondNumber) {
+        if (operator && firstNumber) {
+            isFirstNumberEntered = true;
+        }
+
+        if (!isNaN(id) || id === ".") { // it's a number or point
+            valueForChain = null;
+            if (id === ".") {
+                if (numberArray.indexOf(id) === -1) {
+                    if (numberArray.length === 0) {
+                        numberArray.push('0');
+                    }
+
+                    numberArray.push(id);
+                    displayNumbers(numberArray.join(""));
+                    return;
+                } else {
+                    return;
+                }
+            }
+
+            if (numberArray.length === 1 && numberArray[0] === "0" && id === "0") {
+                return; // don't allow multiple zeroes at front
+            }
+            if (numberArray.length === 1 && numberArray[0] === "0" && id !== "0") {
+                numberArray.pop();
+            }
+            numberArray.push(id);
+
+
+            if (!isFirstNumberEntered) {
+                firstNumber = parseFloat(numberArray.join(""));
+            } else {
+                secondNumber = parseFloat(numberArray.join(""));
+            }
+            displayNumbers(numberArray.join(""));
+            return;
+        } else {
+            if (id == "ce") {
+                numberArray = [];
+                
+                if (!isFirstNumberEntered) {
+                    firstNumber = null;
+                } else {
+                    secondNumber = null;
+                }
+                displayNumbers("0");
                 return;
             }
-
-            if (secondNumber) {
-                secondNumber = null;
-            } else {
-                firstNumber = null;
-            }
-            displayNumbers('0');
-            return;
-        }
-        /*
-        if(id === '0' && numberArray.length === 0) {
-            numberArray.push(id);
-        }*/
-
-        if (id === 'ac') {
-            firstNumber = null;
-            secondNumber = null;
-            operator = null;
-            displayNumbers('0');
-            return;            
-        }
-
-        if (valueForChain && !firstNumber && !secondNumber && numberArray.length === 0 && isNaN(id) && id !== "." && id !== "=") {
-            firstNumber = valueForChain;
-            valueForChain = null;
-            //operator = id;
-        }
-
-        if (firstNumber && secondNumber && operator && id !== "=" && id !== ".") {
-            var result = calculate(firstNumber, secondNumber, operator);
-            valueForChain = result;
-            numberArray = [];
-            firstNumber = result;
-            secondNumber = null;
-            operator = operator;
-            displayNumbers(result);
-            return;            
-        }
-
-        if (operator === "" && isNaN(id) && id !== ".") {
-            return;
-        }
-
-        if (id === ".") {
-            if (numberArray.indexOf(id) === -1) {
-                if (numberArray.length === 0) {
-                    numberArray.push('0');
-                }
-                
-                numberArray.push(id);
-            }
-            
-            //return;
-        }
-
-        if (!isNaN(id)) {
-            numberArray.push(id);
-        }
-
-        
-        
-        if (secondNumber !== null && id === "=") {
-            if (secondNumber === 0 && operator === "/") {
-                // division by zero
-                displayNumbers("Error!");
+            if (id == "ac") {
                 numberArray = [];
                 firstNumber = null;
                 secondNumber = null;
                 operator = null;
-
+                displayNumbers("0");
                 return;
             }
-            
-            var result = calculate(firstNumber, secondNumber, operator);
-            valueForChain = result;
-            numberArray = [];
-            firstNumber = null;
-            secondNumber = null;
-            operator = null;
-            displayNumbers(result);
-            return;
-        }
-        
-        if (firstNumber && isNaN(id) && id !== "=" && !operator && id !== ".") {
-            numberArray = [];
-            operator = id;
-            if (operator === "*") {
-                displayNumbers('X');
-            } else if (operator === "/") {
-                displayNumbers('&#247;'); 
-            } else {
-                displayNumbers(operator);
+            if (operator && isFirstNumberEntered && id !== "=" && valueForChain) {
+                // chain command
+                return;
             }
-            
-            return;
+            if (operator && isFirstNumberEntered && id === "=") {
+                var result = calculate(firstNumber, secondNumber, operator);
+                valueForChain = result;
+                firstNumber = null;
+                secondNumber = null;
+                operator = null;
+                numberArray = [];
+                displayNumbers(result);
+                isFirstNumberEntered = false;
+                return;
+            }
+            if (!operator && id !== "=" && !valueForChain) {
+                operator = id;
+                displayNumbers(operator);
+                isFirstNumberEntered = true;
+                numberArray = [];
+            }
+
+
         }
 
-        if (!valueForChain && (operator === "" || !operator)) { 
-            firstNumber = parseFloat(numberArray.join(""));
-            
-            
-        } else {
-            secondNumber = parseFloat(numberArray.join(""));
-        }
-        
-        displayNumbers(numberArray.join(""));
+
+
+
     }
 
     function calculate(fst, snd, op) {
-        switch(op) {
+        switch (op) {
             case "+":
                 return fst + snd;
             case "-":
@@ -177,7 +150,7 @@ $(function () {
             case "*":
                 return fst * snd;
             case "/":
-                return fst/snd;
+                return fst / snd;
 
         }
     }
