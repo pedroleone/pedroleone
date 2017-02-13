@@ -73,11 +73,12 @@ $(function () {
         if ((!isNaN(val) && !isFinite(val)) || val !== val) {
             $(".calc-result").html('erro!');
         } else {
-            if (!isNaN(val)) {
+            $(".calc-result").html(val);
+            /*if (!isNaN(val)) {
                 $(".calc-result").html(_.round(val,5));
             } else {
                 $(".calc-result").html(val);
-            }
+            }*/
             
         }
 
@@ -164,7 +165,7 @@ $(function () {
                 secondNumber = null;
                 operator = null;
                 numberArray = [];
-                displayNumbers(result);
+                displayNumbers(_.round(result,10));
                 isFirstNumberEntered = false;
                 return;
             }
