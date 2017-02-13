@@ -154,10 +154,26 @@ $(function () {
                 displayNumbers("0");
                 return;
             }
-            if (operator && isFirstNumberEntered && id !== "=" && valueForChain) {
+            if (isNaN(id) && !firstNumber && !secondNumber && id !== "=" && valueForChain) {
                 // chain command
+                operator = id;
+                firstNumber = valueForChain;
+                valueForChain = null;
+                if (operator === "*") {
+                    displayNumbers("x");    
+                } else if (operator === "/") {
+                    displayNumbers("&#247;")
+                } else {
+                    displayNumbers(operator);
+                }
+                
+                isFirstNumberEntered = true;
+                numberArray = [];
+                                
                 return;
             }
+
+
             if (operator && isFirstNumberEntered && id === "=") {
                 var result = calculate(firstNumber, secondNumber, operator);
                 valueForChain = result;
@@ -183,7 +199,18 @@ $(function () {
                 numberArray = [];
                 return;
             }
-
+            if (isNaN(id) && id !== "." && firstNumber && operator && secondNumber) {
+                // chain command without equal
+                var result = calculate(firstNumber, secondNumber, operator);
+                firstNumber = result;
+                secondNumber = null;
+                operator = id;
+                numberArray = [];
+                displayNumbers(_.round(result,10));
+                isFirstNumberEntered = false;
+                return;
+                
+            }
 
         }
 
