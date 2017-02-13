@@ -70,7 +70,7 @@ $(function () {
         }
     */
     function displayNumbers(val) {
-        if (!isNaN(val) && !isFinite(val)) {
+        if ((!isNaN(val) && !isFinite(val)) || val !== val) {
             $(".calc-result").html('erro!');
         } else {
             if (!isNaN(val)) {
