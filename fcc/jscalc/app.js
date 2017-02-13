@@ -33,10 +33,15 @@ $(function () {
         }
     */
     function displayNumbers(val) {
-        if (!val) {
+        if (!isNaN(val) && !isFinite(val)) {
             $(".calc-result").html('erro!');
         } else {
-            $(".calc-result").html(val);
+            if (!isNaN(val)) {
+                $(".calc-result").html(_.round(val,5));
+            } else {
+                $(".calc-result").html(val);
+            }
+            
         }
 
 
@@ -128,9 +133,17 @@ $(function () {
             }
             if (!operator && id !== "=" && !valueForChain) {
                 operator = id;
-                displayNumbers(operator);
+                if (operator === "*") {
+                    displayNumbers("x");    
+                } else if (operator === "/") {
+                    displayNumbers("&#247;")
+                } else {
+                    displayNumbers(operator);
+                }
+                
                 isFirstNumberEntered = true;
                 numberArray = [];
+                return;
             }
 
 
