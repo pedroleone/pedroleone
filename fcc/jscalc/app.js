@@ -1,6 +1,43 @@
 'use strict';
 $(function () {
     var display = [];
+    $(document).keypress(function(k) {
+        console.log(k.key);
+        var keyPressed = k.key;
+        switch (k.key) {
+            case "*":
+                keyPressed = "mult";
+                break;
+            case "+":
+                keyPressed = "plus";
+                break;
+            case "-":
+                keyPressed = "minus";
+                break;
+            case ",":
+                keyPressed = "point";
+                break;
+            case ".":
+                keyPressed = "point";
+                break;                                
+            case "/":
+                keyPressed = "division";
+                break;  
+            case "=":
+                keyPressed = "eq";
+                break;
+            case "Enter":
+                keyPressed = "eq";
+                break;            
+        }
+        var POSSIBLE_KEYS = ["1","2","3","4","5","6","7",
+                             "8","9","0", "point", "eq","plus", 
+                             "minus","division","mult","ac","ce"];
+        if (POSSIBLE_KEYS.indexOf(keyPressed) >= 0) {
+            $("#"+keyPressed).trigger("click");
+        }
+        
+    });
     $(".calc").click(function () {
         var id = "";
         switch ($(this).attr("id")) {
