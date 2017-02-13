@@ -3,6 +3,8 @@ body {
     background: white;
     background: radial-gradient(circle, #fff 20%, #ccc);
     background-size: cover;
+    font-family: 'Share Tech Mono', monospace;
+
 }
 
 .calc-app {
@@ -33,23 +35,23 @@ body {
 .calc-buttons button {
     width: 72px;
     height: 72px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     border-radius: 8px;
     border: none;
     background-color: #3a3a3a;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
     color: #fff;
     box-shadow: 0px 3px 0px 0px #222121, inset -1px -3px 10px 1px #515151;
 }
 
 .calc-buttons button:nth-child(4n+1) {
-    margin-right: 20px;
+    margin-right: 15px;
 }
 
 .calc-buttons button:nth-child(4n+3) {
-    margin-right: 20px;
-    margin-left: 20px;
+    margin-right: 15px;
+    margin-left: 15px;
 }
 
 .calc-buttons .large {
